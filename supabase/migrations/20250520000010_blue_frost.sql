@@ -1,5 +1,5 @@
 /*
-  # Initial Schema Setup for SuperMarché
+  # Initial Schema Setup for Ste SERDIS SARL
 
   1. New Tables
     - `categories`

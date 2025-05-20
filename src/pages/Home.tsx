@@ -75,7 +75,7 @@ const Home: React.FC = () => {
               <span className="text-sm font-medium">Produits frais tous les jours</span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight max-w-4xl">
-              Bienvenue à <span className="text-green-300">SuperMarché</span>
+              Bienvenue à <span className="text-green-300">Ste SERDIS SARL</span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-2xl leading-relaxed">
               Découvrez une large sélection de produits frais et de qualité pour toute la famille.

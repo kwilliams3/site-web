@@ -19,17 +19,13 @@ const Footer: React.FC = () => {
                 <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-green-500 animate-pulse"></span>
               </div>
               <span className="ml-3 text-2xl font-bold bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">
-                SuperMarché
+                Ste SERDIS SARL
               </span>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
               Votre supermarché de confiance offrant des produits frais et de qualité pour toute la famille depuis 2010.
             </p>
             <div className="flex flex-col space-y-3">
-              <div className="flex items-center">
-                <Truck className="h-5 w-5 mr-2 text-green-400" />
-                <span className="text-gray-300">Livraison rapide</span>
-              </div>
               <div className="flex items-center">
                 <ShieldCheck className="h-5 w-5 mr-2 text-green-400" />
                 <span className="text-gray-300">Paiement sécurisé</span>
@@ -67,12 +63,6 @@ const Footer: React.FC = () => {
                   <span>À Propos</span>
                 </Link>
               </li>
-              <li>
-                <Link to="/admin" className="flex items-center text-gray-400 hover:text-green-400 transition-colors group">
-                  <Shield className="h-4 w-4 mr-3 text-green-400 group-hover:scale-125 transition-transform" />
-                  <span>Espace Admin</span>
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -91,7 +81,7 @@ const Footer: React.FC = () => {
                 <div className="ml-3">
                   <p className="text-gray-400">Téléphone</p>
                   <p className="text-gray-300 hover:text-green-400 transition-colors">
-                    <a href="tel:+33123456789">+33 1 23 45 67 89</a>
+                    <a href="tel:+33123456789">+237 6 12 23 34 45</a>
                   </p>
                 </div>
               </li>
@@ -102,7 +92,7 @@ const Footer: React.FC = () => {
                 <div className="ml-3">
                   <p className="text-gray-400">Email</p>
                   <p className="text-gray-300 hover:text-green-400 transition-colors">
-                    <a href="mailto:contact@supermarche.com">contact@supermarche.com</a>
+                    <a href="mailto:serdissarl.com">contact@serdis.com</a>
                   </p>
                 </div>
               </li>
@@ -157,7 +147,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-500 text-sm mb-4 md:mb-0">
-              &copy; {new Date().getFullYear()} SuperMarché. Tous droits réservés.
+              &copy; {new Date().getFullYear()} Ste SERDIS SARL. Tous droits réservés.
             </p>
           </div>
         </div>

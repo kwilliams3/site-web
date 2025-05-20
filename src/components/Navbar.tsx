@@ -75,7 +75,7 @@ const Navbar: React.FC = () => {
                 <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-green-500 animate-pulse"></span>
               </div>
               <span className="ml-3 text-xl font-bold bg-gradient-to-r from-green-600 to-green-800 bg-clip-text text-transparent">
-                SuperMarché
+                Ste SERDIS SARL
               </span>
             </Link>
           </div>

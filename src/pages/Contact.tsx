@@ -38,8 +38,8 @@ const Contact: React.FC = () => {
                   </div>
                   <div className="ml-4">
                     <p className="text-sm font-medium text-gray-800">Email</p>
-                    <p className="text-gray-600">contact@supermarche-cm.com</p>
-                    <p className="text-gray-600">serviceclient@supermarche-cm.com</p>
+                    <p className="text-gray-600">contact@serdis-cm.com</p>
+                    <p className="text-gray-600">serviceclient@serdis-cm.com</p>
                   </div>
                 </div>
                 
