@@ -25,7 +25,7 @@ const About: React.FC = () => {
             <div className="md:w-1/2 p-8">
               <h2 className="text-2xl font-semibold text-gray-800 mb-4">Notre Histoire</h2>
               <p className="text-gray-600 mb-6">
-                Fondé en 2020, SuperMarché est né d'une passion pour les produits frais et de qualité. Notre fondateur, passionné par l'alimentation saine et durable, a voulu créer un lieu où les clients pourraient trouver des produits exceptionnels tout en soutenant les producteurs locaux.
+                Fondé en 2020, Ste SERDIS SARL est né d'une passion pour les produits frais et de qualité. Notre fondateur, passionné par l'alimentation saine et durable, a voulu créer un lieu où les clients pourraient trouver des produits exceptionnels tout en soutenant les producteurs locaux.
               </p>
               <p className="text-gray-600 mb-6">
                 Au fil des années, nous avons grandi pour devenir le supermarché de référence dans notre région, tout en restant fidèles à nos valeurs d'origine : qualité, fraîcheur, service client exceptionnel et engagement envers notre communauté.
