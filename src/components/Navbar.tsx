@@ -30,37 +30,37 @@ const Navbar: React.FC = () => {
     { 
       path: "/", 
       name: "Accueil", 
-      icon: <Home className="h-[1.2rem] w-[1.2rem] text-blue-600" />, 
-      mobileIcon: <Home className="h-5 w-5 text-blue-600" /> 
+      icon: <Home className="h-[1.2rem] w-[1.2rem] text-sky-600" />, 
+      mobileIcon: <Home className="h-5 w-5 text-sky-600" /> 
     },
     { 
       path: "/gallery", 
       name: "Galerie", 
-      icon: <ShoppingBag className="h-[1.2rem] w-[1.2rem] text-purple-600" />, 
-      mobileIcon: <ShoppingBag className="h-5 w-5 text-purple-600" /> 
+      icon: <ShoppingBag className="h-[1.2rem] w-[1.2rem] text-sky-500" />, 
+      mobileIcon: <ShoppingBag className="h-5 w-5 text-sky-500" /> 
     },
     { 
       path: "/about", 
       name: "À Propos", 
-      icon: <Users className="h-[1.2rem] w-[1.2rem] text-amber-600" />, 
-      mobileIcon: <Users className="h-5 w-5 text-amber-600" /> 
+      icon: <Users className="h-[1.2rem] w-[1.2rem] text-sky-400" />, 
+      mobileIcon: <Users className="h-5 w-5 text-sky-400" /> 
     },
     { 
       path: "/contact", 
       name: "Contact", 
-      icon: <Phone className="h-[1.2rem] w-[1.2rem] text-green-600" />, 
-      mobileIcon: <Phone className="h-5 w-5 text-green-600" /> 
+      icon: <Phone className="h-[1.2rem] w-[1.2rem] text-sky-300" />, 
+      mobileIcon: <Phone className="h-5 w-5 text-sky-300" /> 
     },
     { 
       path: "/admin", 
       name: "Admin", 
-      icon: <Shield className="h-[1.2rem] w-[1.2rem] text-red-600" />, 
-      mobileIcon: <Shield className="h-5 w-5 text-red-600" /> 
+      icon: <Shield className="h-[1.2rem] w-[1.2rem] text-sky-700" />, 
+      mobileIcon: <Shield className="h-5 w-5 text-sky-700" /> 
     }
   ];
 
   return (
-    <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-white shadow-sm'}`}>
+    <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-sky-50/95 backdrop-blur-md shadow-lg' : 'bg-sky-50 shadow-sm'}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
           {/* Logo avec animation améliorée */}
@@ -71,10 +71,10 @@ const Navbar: React.FC = () => {
               onClick={() => setIsOpen(false)}
             >
               <div className="relative transition-all duration-500 group-hover:rotate-[360deg]">
-                <ShoppingBasket className="h-8 w-8 text-green-600 group-hover:text-green-700 transition-colors" />
-                <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-green-500 animate-pulse"></span>
+                <ShoppingBasket className="h-8 w-8 text-sky-600 group-hover:text-sky-700 transition-colors" />
+                <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-sky-500 animate-pulse"></span>
               </div>
-              <span className="ml-3 text-xl font-bold bg-gradient-to-r from-green-600 to-green-800 bg-clip-text text-transparent">
+              <span className="ml-3 text-xl font-bold bg-gradient-to-r from-sky-600 to-sky-800 bg-clip-text text-transparent">
                 Ste SERDIS SARL
               </span>
             </Link>
@@ -88,15 +88,15 @@ const Navbar: React.FC = () => {
                 to={item.path}
                 className={`flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 group ${
                   location.pathname === item.path
-                    ? 'bg-green-50 text-green-700 shadow-inner'
-                    : 'text-gray-600 hover:bg-green-50 hover:text-green-600'
+                    ? 'bg-sky-50 text-sky-700 shadow-inner'
+                    : 'text-gray-600 hover:bg-sky-50 hover:text-sky-600'
                 }`}
                 title={item.name}
               >
                 <span className="mr-2 transition-transform duration-300 group-hover:scale-110">
                   {React.cloneElement(item.icon, {
                     className: `${item.icon.props.className} transition-colors duration-300 ${
-                      location.pathname === item.path ? 'text-green-600' : ''
+                      location.pathname === item.path ? 'text-sky-600' : ''
                     }`
                   })}
                 </span>
@@ -109,7 +109,7 @@ const Navbar: React.FC = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-lg text-gray-600 hover:text-green-600 hover:bg-green-50 focus:outline-none transition-all duration-200"
+              className="inline-flex items-center justify-center p-2 rounded-lg text-gray-600 hover:text-sky-600 hover:bg-sky-50 focus:outline-none transition-all duration-200"
               aria-label="Menu"
             >
               {isOpen ? (
@@ -133,8 +133,8 @@ const Navbar: React.FC = () => {
               to={item.path} 
               className={`flex items-center w-full px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 group ${
                 location.pathname === item.path
-                  ? 'bg-green-50 text-green-700 shadow-inner'
-                  : 'text-gray-600 hover:bg-green-50 hover:text-green-600'
+                  ? 'bg-sky-50 text-sky-700 shadow-inner'
+                  : 'text-gray-600 hover:bg-sky-50 hover:text-sky-600'
               }`}
               onClick={() => {
                 setIsOpen(false);
@@ -144,7 +144,7 @@ const Navbar: React.FC = () => {
               <span className="mr-3 transition-transform duration-300 group-hover:scale-110">
                 {React.cloneElement(item.mobileIcon, {
                   className: `${item.mobileIcon.props.className} transition-colors duration-300 ${
-                    location.pathname === item.path ? 'text-green-600' : ''
+                    location.pathname === item.path ? 'text-sky-600' : ''
                   }`
                 })}
               </span>

@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { icon } from 'leaflet';
 
-// Fix for marker icons in react-leaflet
+// Configuration de l'icône du marqueur
 const customIcon = icon({
   iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
   iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
@@ -15,23 +15,28 @@ const customIcon = icon({
 });
 
 const Map: React.FC = () => {
-  // Coordonnées de Douala, Cameroun
-  const position: [number, number] = [4.0511, 9.7679];
+  // Coordonnées d'Akwa, rue Castelnau à Douala
+  const position: [number, number] = [4.0512, 9.7047];
   
   return (
-    <div className="h-[400px] w-full rounded-lg overflow-hidden shadow-md">
+    <div className="h-[500px] w-full rounded-lg overflow-hidden shadow-md">
       <MapContainer 
         center={position} 
-        zoom={13} 
+        zoom={15} 
         style={{ height: '100%', width: '100%' }}
+        scrollWheelZoom={true}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <Marker position={position} icon={customIcon}>
-          <Popup>
-            Douala, Cameroun <br /> Ville économique
+          <Popup className="text-sm font-medium">
+            <div className="text-center">
+              <p>Notre emplacement</p>
+              <p>Akwa, Rue Castelnau</p>
+              <p>Face au Collège King Akwa</p>
+            </div>
           </Popup>
         </Marker>
       </MapContainer>

@@ -1,191 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Search } from 'lucide-react';
-import CategoryFilter from '../components/CategoryFilter';
-import ProductList from '../components/ProductList';
 import { Product, Category } from '../types/database.types';
 
-// Fonction de conversion en XAF
-const convertToXAF = (amount: number) => {
-  return (amount * 600).toLocaleString('fr-FR') + ' FCFA';
-};
+interface GalleryProps {
+  products: Product[];
+  categories: Category[];
+}
 
-// Catégories de produits
-const mockCategories: Category[] = [
-  { id: 1, name: 'Fruits & Légumes', created_at: new Date().toISOString() },
-  { id: 2, name: 'Boulangerie', created_at: new Date().toISOString() },
-  { id: 3, name: 'Produits Laitiers', created_at: new Date().toISOString() },
-  { id: 4, name: 'Boissons', created_at: new Date().toISOString() },
-  { id: 5, name: 'Épicerie', created_at: new Date().toISOString() },
-  { id: 6, name: 'Produits Locaux', created_at: new Date().toISOString() }
-];
-
-// Produits avec URLs d'images corrigées
-const mockProducts: Product[] = [
-  // Produits de base
-  {
-    id: 1,
-    name: 'Pommes Bio',
-    description: 'Pommes fraîches de production locale et biologique',
-    price: convertToXAF(2.99),
-    originalPrice: 2.99,
-    image_url: 'https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-    category_id: 1,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 2,
-    name: 'Baguette Tradition',
-    description: 'Baguette traditionnelle préparée selon la recette ancestrale',
-    price: convertToXAF(1.20),
-    originalPrice: 1.20,
-    image_url: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-    category_id: 2,
-    created_at: new Date().toISOString()
-  },
-  // Produits 
-  {
-    id: 9,
-    name: 'Plantains Mûrs',
-    description: 'Plantains bien mûrs pour vos plats traditionnels',
-    price: convertToXAF(1.50),
-    originalPrice: 1.50,
-    image_url: 'https://images.unsplash.com/photo-1615484477778-ca3b77940c25?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-    category_id: 1,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 10,
-    name: 'Feuilles de Ndolè',
-    description: 'Pour la préparation du plat national',
-    price: convertToXAF(1.20),
-    originalPrice: 1.20,
-    image_url: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-    category_id: 1,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 11,
-    name: 'Poulet Fermier',
-    description: 'Poulet frais pour préparer le célèbre Poulet DG',
-    price: convertToXAF(4.80),
-    originalPrice: 4.80,
-    image_url: 'https://images.unsplash.com/photo-1606850780686-1bbfaf1efb0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-    category_id: 6,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 12,
-    name: 'Feuilles d\'Eru',
-    description: 'Pour la soupe traditionnelle',
-    price: convertToXAF(1.00),
-    originalPrice: 1.00,
-    image_url: 'https://images.unsplash.com/photo-1518977676601-b53f82aba655?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-    category_id: 1,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 13,
-    name: 'Taro Frais',
-    description: 'Pour préparer l\'achu',
-    price: convertToXAF(0.80),
-    originalPrice: 0.80,
-    image_url: 'https://images.unsplash.com/photo-1594282418423-2d97b6ba364f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-    category_id: 1,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 14,
-    name: 'Bobolo',
-    description: 'Spécialité à base de manioc',
-    price: convertToXAF(1.50),
-    originalPrice: 1.50,
-    image_url: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-    category_id: 6,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 15,
-    name: 'Kondrè',
-    description: 'Kondrè prêt à cuisiner',
-    price: convertToXAF(2.50),
-    originalPrice: 2.50,
-    image_url: 'https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-    category_id: 6,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 16,
-    name: 'Piment Noir',
-    description: 'Piment noir frais du Cameroun',
-    price: convertToXAF(0.50),
-    originalPrice: 0.50,
-    image_url: 'https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-    category_id: 5,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 17,
-    name: 'Sucre Rouge',
-    description: 'Sucre rouge artisanal',
-    price: convertToXAF(1.20),
-    originalPrice: 1.20,
-    image_url: 'https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-    category_id: 5,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 18,
-    name: 'Bissap',
-    description: 'Fleurs d\'hibiscus séchées pour infusion',
-    price: convertToXAF(1.80),
-    originalPrice: 1.80,
-    image_url: 'https://images.unsplash.com/photo-1594282418423-2d97b6ba364f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-    category_id: 4,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 19,
-    name: 'Jus de Folèrè',
-    description: 'Jus traditionnel camerounais',
-    price: convertToXAF(2.00),
-    originalPrice: 2.00,
-    image_url: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-    category_id: 4,
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 20,
-    name: 'Miel Sauvage',
-    description: 'Miel 100% naturel des forêts camerounaises',
-    price: convertToXAF(3.50),
-    originalPrice: 3.50,
-    image_url: 'https://images.unsplash.com/photo-1587049352851-8d4e89133924?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-    category_id: 5,
-    created_at: new Date().toISOString()
-  }
-];
-
-const Gallery: React.FC = () => {
-  const [products, setProducts] = useState<Product[]>(mockProducts);
-  const [categories, setCategories] = useState<Category[]>(mockCategories);
+const Gallery: React.FC<GalleryProps> = ({ products = [], categories = [] }) => {
   const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-        setLoading(false);
-      }
-    };
-    
-    fetchData();
-  }, []);
 
   const filteredProducts = products.filter(product => {
     const matchesCategory = selectedCategory === null || product.category_id === selectedCategory;
@@ -198,7 +22,7 @@ const Gallery: React.FC = () => {
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nos Produits </h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nos Produits</h1>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
             Découvrez notre sélection de produits frais et de spécialités locales
           </p>
@@ -212,7 +36,7 @@ const Gallery: React.FC = () => {
             </div>
             <input
               type="text"
-              className="block w-full pl-10 pr-4 py-3 border-0 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 sm:text-sm"
+              className="block w-full pl-10 pr-4 py-3 border-0 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:text-sm"
               placeholder="Rechercher un produit..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -225,18 +49,64 @@ const Gallery: React.FC = () => {
           <div className="lg:col-span-1">
             <div className="bg-white p-6 rounded-xl shadow-sm sticky top-4">
               <h3 className="text-lg font-semibold text-gray-800 mb-4">Catégories</h3>
-              <CategoryFilter 
-                categories={categories} 
-                selectedCategory={selectedCategory} 
-                onCategoryChange={setSelectedCategory} 
-              />
+              <div className="space-y-2">
+                <button
+                  onClick={() => setSelectedCategory(null)}
+                  className={`block w-full text-left px-3 py-2 rounded-md ${selectedCategory === null ? 'bg-blue-100 text-blue-800' : 'hover:bg-gray-100'}`}
+                >
+                  Toutes les catégories
+                </button>
+                {categories.map(category => (
+                  <button
+                    key={category.id}
+                    onClick={() => setSelectedCategory(category.id)}
+                    className={`block w-full text-left px-3 py-2 rounded-md ${selectedCategory === category.id ? 'bg-blue-100 text-blue-800' : 'hover:bg-gray-100'}`}
+                  >
+                    {category.name}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
           
           {/* Product Grid */}
           <div className="lg:col-span-3">
             {filteredProducts.length > 0 ? (
-              <ProductList products={filteredProducts} loading={loading} />
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {filteredProducts.map(product => (
+                  <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow">
+                    <div className="h-48 overflow-hidden">
+                      {product.image_url ? (
+                        <img 
+                          src={product.image_url} 
+                          alt={product.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-gray-100 flex items-center justify-center">
+                          <span className="text-gray-400">Pas d'image</span>
+                        </div>
+                      )}
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-lg mb-1 text-gray-800">{product.name}</h3>
+                      <p className="text-gray-600 text-sm mb-2 line-clamp-2">{product.description}</p>
+                      <div className="flex justify-between items-center">
+                        <span className="font-bold text-blue-600">
+                          {new Intl.NumberFormat('fr-FR', {
+                            style: 'currency',
+                            currency: 'XAF',
+                            maximumFractionDigits: 0
+                          }).format(product.price * 655.957)}
+                        </span>
+                        <span className="px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded-full">
+                          {categories.find(c => c.id === product.category_id)?.name || 'Aucune'}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             ) : (
               <div className="bg-white p-8 rounded-xl shadow-sm text-center">
                 <h3 className="text-lg font-medium text-gray-700">Aucun produit trouvé</h3>

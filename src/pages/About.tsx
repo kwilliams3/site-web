@@ -6,9 +6,9 @@ const About: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center mb-12">
-          <h1 className="text-3xl font-bold text-gray-800 mb-4">À Propos de Ste SERDIS SARL</h1>
+          <h1 className="text-3xl font-bold text-gray-800 mb-4">À Propos de STE SERDIS SARL</h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Découvrez notre histoire, notre mission et nos valeurs qui font de nous un supermarché unique.
+            Services & Distributions - Votre partenaire de confiance pour tous vos besoins
           </p>
         </div>
         
@@ -16,22 +16,28 @@ const About: React.FC = () => {
         <div className="bg-white rounded-lg shadow-md overflow-hidden max-w-5xl mx-auto">
           <div className="md:flex">
             <div className="md:w-1/2">
-              <img 
+            <img 
                 src="https://images.pexels.com/photos/264547/pexels-photo-264547.jpeg" 
                 alt="Notre magasin" 
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="md:w-1/2 p-8">
-              <h2 className="text-2xl font-semibold text-gray-800 mb-4">Notre Histoire</h2>
+              <h2 className="text-2xl font-semibold text-gray-800 mb-4">Notre Entreprise</h2>
               <p className="text-gray-600 mb-6">
-                Fondé en 2020, Ste SERDIS SARL est né d'une passion pour les produits frais et de qualité. Notre fondateur, passionné par l'alimentation saine et durable, a voulu créer un lieu où les clients pourraient trouver des produits exceptionnels tout en soutenant les producteurs locaux.
+                STE SERDIS SARL, sous la direction de Mme TIEWENGUNOU Epse ELAME Elisabeth, est une entreprise spécialisée dans les services et distributions. Notre promesse : qualité, fiabilité et service client exceptionnel.
               </p>
-              <p className="text-gray-600 mb-6">
-                Au fil des années, nous avons grandi pour devenir le supermarché de référence dans notre région, tout en restant fidèles à nos valeurs d'origine : qualité, fraîcheur, service client exceptionnel et engagement envers notre communauté.
-              </p>
+              
+              <div className="mb-6">
+                <h3 className="text-lg font-medium text-gray-800 mb-2">Coordonnées</h3>
+                <p className="text-gray-600"><span className="font-medium">Email :</span> tiliz9@yahoo.fr</p>
+                <p className="text-gray-600"><span className="font-medium">Téléphone :</span> +237 677 70 38 93</p>
+                <p className="text-gray-600"><span className="font-medium">Téléphone :</span> +237 656 95 62 48</p>
+                <p className="text-gray-600 mt-2"><span className="font-medium">Adresse :</span> Akwa, rue Castelnau, en face Collège King Akwa</p>
+              </div>
+              
               <p className="text-gray-600">
-                Aujourd'hui, nous sommes fiers de continuer à servir nos clients avec la même passion et le même dévouement qu'à nos débuts, en proposant toujours les meilleurs produits au meilleur prix.
+                Nous nous engageons à fournir des services de qualité et une distribution efficace pour répondre aux besoins diversifiés de notre clientèle.
               </p>
             </div>
           </div>
@@ -43,38 +49,34 @@ const About: React.FC = () => {
             <div className="bg-white rounded-lg shadow-md p-8">
               <h2 className="text-2xl font-semibold text-gray-800 mb-4">Notre Mission</h2>
               <p className="text-gray-600">
-                Notre mission est de fournir à nos clients des produits de la plus haute qualité, frais et abordables, tout en soutenant les producteurs locaux et en minimisant notre impact sur l'environnement. Nous nous efforçons de créer une expérience d'achat agréable et personnalisée, où chaque client se sent valorisé et où chaque visite est un plaisir.
+                Offrir des services et solutions de distribution de qualité, en créant des partenariats durables avec nos clients et fournisseurs. Nous nous engageons à répondre aux besoins spécifiques de chaque client avec professionnalisme et efficacité.
               </p>
             </div>
             <div className="bg-white rounded-lg shadow-md p-8">
               <h2 className="text-2xl font-semibold text-gray-800 mb-4">Notre Vision</h2>
               <p className="text-gray-600">
-                Nous aspirons à devenir le supermarché de référence dans notre région, reconnu pour notre engagement envers la qualité, le service client exceptionnel et notre impact positif sur la communauté. Nous voulons être plus qu'un simple lieu d'achat - nous voulons être un partenaire de confiance dans la vie quotidienne de nos clients.
+                Devenir le leader reconnu dans notre domaine d'activité, en nous appuyant sur notre expertise, notre réseau de distribution et notre engagement envers l'excellence du service. Nous aspirons à étendre notre présence tout en maintenant nos valeurs fondamentales.
               </p>
             </div>
           </div>
         </div>
         
-        {/* Team / Statistics */}
-        <div className="max-w-5xl mx-auto mt-12 bg-green-700 text-white rounded-lg shadow-md overflow-hidden">
+        {/* Statistics */}
+        <div className="max-w-5xl mx-auto mt-12 bg-blue-700 text-white rounded-lg shadow-md overflow-hidden">
           <div className="p-8 text-center">
-            <h2 className="text-2xl font-semibold mb-8">SuperMarché en Chiffres</h2>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <h2 className="text-2xl font-semibold mb-8">STE SERDIS en Chiffres</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div>
-                <p className="text-4xl font-bold">5+</p>
-                <p className="text-sm mt-2">Années d'expérience</p>
+                <p className="text-4xl font-bold">2+</p>
+                <p className="text-sm mt-2">Points de vente</p>
               </div>
               <div>
-                <p className="text-4xl font-bold">20+</p>
-                <p className="text-sm mt-2">Employés dévoués</p>
+                <p className="text-4xl font-bold">50+</p>
+                <p className="text-sm mt-2">Partenaires commerciaux</p>
               </div>
               <div>
-                <p className="text-4xl font-bold">1000+</p>
-                <p className="text-sm mt-2">Produits disponibles</p>
-              </div>
-              <div>
-                <p className="text-4xl font-bold">10+</p>
-                <p className="text-sm mt-2">Producteurs locaux</p>
+                <p className="text-4xl font-bold">100%</p>
+                <p className="text-sm mt-2">Engagement qualité</p>
               </div>
             </div>
           </div>

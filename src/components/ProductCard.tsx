@@ -34,9 +34,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <h3 className="text-lg font-semibold text-gray-800 mb-1">{name}</h3>
         <p className="text-gray-600 text-sm mb-3 line-clamp-2">{description}</p>
         <div className="flex justify-between items-center">
-          <span className="text-green-700 font-bold">{displayPrice}</span>
+          <span className="text-blue-700 font-bold">{displayPrice}</span>
           <button 
-            className="flex items-center text-sm font-medium text-white bg-green-600 px-3 py-1.5 rounded-md hover:bg-green-700 transition-colors"
+            className="flex items-center text-sm font-medium text-white bg-blue-600 px-3 py-1.5 rounded-md hover:bg-blue-700 transition-colors"
             aria-label="Voir le produit"
           >
             <ShoppingBag className="h-4 w-4 mr-1" />

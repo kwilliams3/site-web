@@ -15,10 +15,10 @@ const Footer: React.FC = () => {
           <div className="col-span-1">
             <div className="flex items-center mb-5">
               <div className="relative">
-                <ShoppingBasket className="h-8 w-8 text-green-400" />
-                <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-green-500 animate-pulse"></span>
+                <ShoppingBasket className="h-8 w-8 text-sky-400" />
+                <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-sky-500 animate-pulse"></span>
               </div>
-              <span className="ml-3 text-2xl font-bold bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">
+              <span className="ml-3 text-2xl font-bold bg-gradient-to-r from-sky-400 to-sky-600 bg-clip-text text-transparent">
                 Ste SERDIS SARL
               </span>
             </div>
@@ -27,11 +27,11 @@ const Footer: React.FC = () => {
             </p>
             <div className="flex flex-col space-y-3">
               <div className="flex items-center">
-                <ShieldCheck className="h-5 w-5 mr-2 text-green-400" />
+                <ShieldCheck className="h-5 w-5 mr-2 text-sky-400" />
                 <span className="text-gray-300">Paiement sécurisé</span>
               </div>
               <div className="flex items-center">
-                <Clock className="h-5 w-5 mr-2 text-green-400" />
+                <Clock className="h-5 w-5 mr-2 text-sky-400" />
                 <span className="text-gray-300">Ouvert 7j/7</span>
               </div>
             </div>
@@ -40,26 +40,26 @@ const Footer: React.FC = () => {
           {/* Quick Links */}
           <div className="col-span-1">
             <h3 className="text-xl font-semibold mb-5 flex items-center">
-              <span className="bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-sky-400 to-sky-600 bg-clip-text text-transparent">
                 Navigation
               </span>
             </h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/" className="flex items-center text-gray-400 hover:text-green-400 transition-colors group">
-                  <Home className="h-4 w-4 mr-3 text-green-400 group-hover:scale-125 transition-transform" />
+                <Link to="/" className="flex items-center text-gray-400 hover:text-sky-400 transition-colors group">
+                  <Home className="h-4 w-4 mr-3 text-sky-400 group-hover:scale-125 transition-transform" />
                   <span>Accueil</span>
                 </Link>
               </li>
               <li>
-                <Link to="/gallery" className="flex items-center text-gray-400 hover:text-green-400 transition-colors group">
-                  <ShoppingBag className="h-4 w-4 mr-3 text-green-400 group-hover:scale-125 transition-transform" />
+                <Link to="/gallery" className="flex items-center text-gray-400 hover:text-sky-400 transition-colors group">
+                  <ShoppingBag className="h-4 w-4 mr-3 text-sky-400 group-hover:scale-125 transition-transform" />
                   <span>Galerie Produits</span>
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="flex items-center text-gray-400 hover:text-green-400 transition-colors group">
-                  <Users className="h-4 w-4 mr-3 text-green-400 group-hover:scale-125 transition-transform" />
+                <Link to="/about" className="flex items-center text-gray-400 hover:text-sky-400 transition-colors group">
+                  <Users className="h-4 w-4 mr-3 text-sky-400 group-hover:scale-125 transition-transform" />
                   <span>À Propos</span>
                 </Link>
               </li>
@@ -69,40 +69,43 @@ const Footer: React.FC = () => {
           {/* Contact Info */}
           <div className="col-span-1">
             <h3 className="text-xl font-semibold mb-5 flex items-center">
-              <span className="bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-sky-400 to-sky-600 bg-clip-text text-transparent">
                 Contact
               </span>
             </h3>
             <ul className="space-y-4">
               <li className="flex items-start">
                 <div className="flex-shrink-0 mt-1">
-                  <Phone className="h-5 w-5 text-green-400" />
+                  <Phone className="h-5 w-5 text-sky-400" />
                 </div>
                 <div className="ml-3">
-                  <p className="text-gray-400">Téléphone</p>
-                  <p className="text-gray-300 hover:text-green-400 transition-colors">
-                    <a href="tel:+33123456789">+237 6 12 23 34 45</a>
+                  <p className="text-gray-400">Téléphones</p>
+                  <p className="text-gray-300 hover:text-sky-400 transition-colors">
+                    <a href="tel:+237677703893">+237 677 70 38 93</a><br />
+                    <a href="tel:+237656956248">+237 656 95 62 48</a>
                   </p>
                 </div>
               </li>
               <li className="flex items-start">
                 <div className="flex-shrink-0 mt-1">
-                  <Mail className="h-5 w-5 text-green-400" />
+                  <Mail className="h-5 w-5 text-sky-400" />
                 </div>
                 <div className="ml-3">
                   <p className="text-gray-400">Email</p>
-                  <p className="text-gray-300 hover:text-green-400 transition-colors">
-                    <a href="mailto:serdissarl.com">contact@serdis.com</a>
+                  <p className="text-gray-300 hover:text-sky-400 transition-colors">
+                    <a href="mailto:tiliz9@yahoo.fr">tiliz9@yahoo.fr</a>
                   </p>
                 </div>
               </li>
               <li className="flex items-start">
                 <div className="flex-shrink-0 mt-1">
-                  <MapPin className="h-5 w-5 text-green-400" />
+                  <MapPin className="h-5 w-5 text-sky-400" />
                 </div>
                 <div className="ml-3">
                   <p className="text-gray-400">Adresse</p>
-                  <p className="text-gray-300">Bonapriso: Carrefour ARNO, Douala</p>
+                  <p className="text-gray-300">
+                    Akwa rue Castelnau en face Collège King Akwa
+                  </p>
                 </div>
               </li>
             </ul>
@@ -111,7 +114,7 @@ const Footer: React.FC = () => {
           {/* Social Media */}
           <div className="col-span-1">
             <h3 className="text-xl font-semibold mb-5 flex items-center">
-              <span className="bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-sky-400 to-sky-600 bg-clip-text text-transparent">
                 Réseaux Sociaux
               </span>
             </h3>
@@ -121,7 +124,7 @@ const Footer: React.FC = () => {
             <div className="flex space-x-4">
               <a 
                 href="#" 
-                className="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-green-600 hover:text-white transition-all duration-300"
+                className="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-sky-500 hover:text-white transition-all duration-300"
                 aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5" />
@@ -135,7 +138,7 @@ const Footer: React.FC = () => {
               </a>
               <a 
                 href="#" 
-                className="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-blue-400 hover:text-white transition-all duration-300"
+                className="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-sky-400 hover:text-white transition-all duration-300"
                 aria-label="Twitter"
               >
                 <Twitter className="h-5 w-5" />
