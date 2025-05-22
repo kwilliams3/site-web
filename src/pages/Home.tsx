@@ -91,80 +91,63 @@ const Home: React.FC = () => {
 
   return (
     <div className="overflow-hidden">
-      {/* Hero Section - Version bleue premium */}
-      <section className="relative bg-gradient-to-br from-blue-900 to-blue-700 text-white h-screen min-h-[800px] flex items-center justify-center">
-        <div className="absolute inset-0 overflow-hidden">
-          {heroImages.map((image, index) => (
-            <img 
-              key={index}
-              src={image} 
-              alt="Produits frais SERDIS" 
-              className={`w-full h-full object-cover transition-all duration-1000 ${index === currentImageIndex ? 'opacity-30 scale-100' : 'opacity-0 scale-105 absolute top-0 left-0'}`}
-            />
-          ))}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-black/20"></div>
-        </div>
-        
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="flex flex-col items-center animate-fadeIn">
-            <div className="mb-6 flex items-center gap-2 bg-white/20 backdrop-blur-md px-6 py-3 rounded-full w-max border border-white/30 shadow-lg">
-              <ShoppingBasket className="h-6 w-6" />
-              <span className="text-lg font-semibold">🎯 Produits frais livrés quotidiennement</span>
-            </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight max-w-4xl tracking-tight">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-white">STE SERDIS SARL</span> - Excellence Alimentaire
-            </h1>
-            <p className="text-2xl md:text-3xl mb-10 max-w-3xl leading-relaxed font-medium text-blue-100">
-              Votre épicerie premium où <span className="text-white font-bold">qualité</span> et <span className="text-white font-bold">fraîcheur</span> se rencontrent
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6">
-              <Link 
-                to="/gallery" 
-                className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-10 py-5 rounded-xl font-bold hover:from-blue-600 hover:to-blue-700 transition-all duration-300 hover:shadow-2xl flex items-center justify-center gap-3 text-lg transform hover:scale-105"
-              >
-                Explorer nos produits <ArrowRight className="h-5 w-5" />
-              </Link>
-              <Link 
-                to="/about" 
-                className="bg-transparent border-2 border-white text-white px-10 py-5 rounded-xl font-bold hover:bg-white/20 transition-all duration-300 flex items-center justify-center gap-3 text-lg backdrop-blur-sm transform hover:scale-105"
-              >
-                Découvrir notre histoire <ArrowRight className="h-5 w-5" />
-              </Link>
-            </div>
-          </div>
-        </div>
+{/* Hero Section - Version responsive */}
+<section className="relative bg-gradient-to-br from-blue-900 to-blue-700 text-white h-[90vh] min-h-[600px] max-h-[1200px] flex items-center justify-center">
+  <div className="absolute inset-0 overflow-hidden">
+    {heroImages.map((image, index) => (
+      <img 
+        key={index}
+        src={image} 
+        alt="Produits frais SERDIS" 
+        className={`w-full h-full object-cover transition-all duration-1000 ${index === currentImageIndex ? 'opacity-30 scale-100' : 'opacity-0 scale-105 absolute top-0 left-0'}`}
+      />
+    ))}
+    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-black/20"></div>
+  </div>
+  
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+    <div className="flex flex-col items-center animate-fadeIn px-4">
+      {/* Badge - Adapté pour mobile */}
+      <div className="mb-4 sm:mb-6 flex items-center gap-2 bg-white/20 backdrop-blur-md px-4 py-2 sm:px-6 sm:py-3 rounded-full w-max max-w-full border border-white/30 shadow-lg">
+        <ShoppingBasket className="h-4 w-4 sm:h-6 sm:w-6" />
+        <span className="text-sm sm:text-lg font-semibold whitespace-nowrap overflow-hidden text-ellipsis">
+          🎯 Produits frais livrés quotidiennement
+        </span>
+      </div>
 
-        {/* Badge de qualité flottant */}
-        <div className="absolute bottom-10 left-10 bg-white/90 text-blue-800 px-4 py-2 rounded-full shadow-xl flex items-center gap-2 z-20">
-          <Award className="h-5 w-5 fill-blue-600" />
-          <span className="font-bold">Certifié Excellence 2024</span>
-        </div>
-      </section>
+      {/* Titre principal - Responsive */}
+      <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight tracking-tight px-2">
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-white">
+          STE SERDIS SARL
+        </span>
+        <span className="block sm:inline"> - Excellence Alimentaire</span>
+      </h1>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')] opacity-5"></div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div className="bg-blue-50 p-8 rounded-2xl border border-blue-100 shadow-sm hover:shadow-md transition-shadow">
-              <div className="text-4xl font-bold text-blue-700 mb-2">05+</div>
-              <div className="text-lg text-gray-600">Années d'expérience</div>
-            </div>
-            <div className="bg-blue-50 p-8 rounded-2xl border border-blue-100 shadow-sm hover:shadow-md transition-shadow">
-              <div className="text-4xl font-bold text-blue-700 mb-2">500+</div>
-              <div className="text-lg text-gray-600">Produits premium</div>
-            </div>
-            <div className="bg-blue-50 p-8 rounded-2xl border border-blue-100 shadow-sm hover:shadow-md transition-shadow">
-              <div className="text-4xl font-bold text-blue-700 mb-2">10K+</div>
-              <div className="text-lg text-gray-600">Clients satisfaits</div>
-            </div>
-            <div className="bg-blue-50 p-8 rounded-2xl border border-blue-100 shadow-sm hover:shadow-md transition-shadow">
-              <div className="text-4xl font-bold text-blue-700 mb-2">24/7</div>
-              <div className="text-lg text-gray-600">Service client</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Sous-titre - Responsive */}
+      <p className="text-base sm:text-xl md:text-2xl lg:text-3xl mb-6 sm:mb-8 md:mb-10 leading-relaxed font-medium text-blue-100 max-w-xs sm:max-w-md md:max-w-xl lg:max-w-3xl px-2">
+        Votre épicerie premium où{' '}
+        <span className="text-white font-bold">qualité</span> et{' '}
+        <span className="text-white font-bold">fraîcheur</span> se rencontrent
+      </p>
+
+      {/* Boutons - Empilés sur mobile */}
+      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 w-full sm:w-auto px-4">
+        <Link 
+          to="/gallery" 
+          className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-lg md:rounded-xl font-bold hover:from-blue-600 hover:to-blue-700 transition-all duration-300 hover:shadow-lg sm:hover:shadow-2xl flex items-center justify-center gap-2 sm:gap-3 text-sm sm:text-base md:text-lg transform hover:scale-105"
+        >
+          Explorer nos produits <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
+        </Link>
+        <Link 
+          to="/about" 
+          className="bg-transparent border border-white sm:border-2 text-white px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-lg md:rounded-xl font-bold hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 text-sm sm:text-base md:text-lg backdrop-blur-sm transform hover:scale-105"
+        >
+          Découvrir notre histoire <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
+        </Link>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Values Section - Version bleue premium */}
       <section className="py-20 bg-gradient-to-b from-white to-gray-50 relative">
