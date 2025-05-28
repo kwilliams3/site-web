@@ -60,27 +60,6 @@ const About: React.FC = () => {
             </div>
           </div>
         </div>
-        
-        {/* Statistics */}
-        <div className="max-w-5xl mx-auto mt-12 bg-blue-700 text-white rounded-lg shadow-md overflow-hidden">
-          <div className="p-8 text-center">
-            <h2 className="text-2xl font-semibold mb-8">STE SERDIS en Chiffres</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div>
-                <p className="text-4xl font-bold">2+</p>
-                <p className="text-sm mt-2">Points de vente</p>
-              </div>
-              <div>
-                <p className="text-4xl font-bold">50+</p>
-                <p className="text-sm mt-2">Partenaires commerciaux</p>
-              </div>
-              <div>
-                <p className="text-4xl font-bold">100%</p>
-                <p className="text-sm mt-2">Engagement qualité</p>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

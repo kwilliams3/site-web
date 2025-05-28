@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   Menu, X, ShoppingCart, Home, Image, Info, Mail, Lock, 
   ShoppingBasket, Store, User, Settings, ShoppingBag, 
   Users, Phone, Shield 
 } from 'lucide-react';
+import { useAuth } from '../AuthContext';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const location = useLocation();
+  const navigate = useNavigate();
+  const { isLoggedIn, logout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -25,7 +28,11 @@ const Navbar: React.FC = () => {
     };
   }, []);
 
-  // Icônes améliorées avec des couleurs contextuelles et une meilleure cohérence
+  const handleLogout = () => {
+    logout();
+    setIsOpen(false);
+  };
+
   const navItems = [
     { 
       path: "/", 
@@ -52,18 +59,26 @@ const Navbar: React.FC = () => {
       mobileIcon: <Phone className="h-5 w-5 text-sky-300" /> 
     },
     { 
-      path: "/admin", 
-      name: "Admin", 
+      path: isLoggedIn ? "/admin" : "/login", 
+      name: isLoggedIn ? "Admin" : "Connexion", 
       icon: <Shield className="h-[1.2rem] w-[1.2rem] text-sky-700" />, 
       mobileIcon: <Shield className="h-5 w-5 text-sky-700" /> 
-    }
+    },
+    ...(isLoggedIn ? [
+      { 
+        path: "#logout", 
+        name: "Déconnexion", 
+        icon: <X className="h-[1.2rem] w-[1.2rem] text-red-600" />, 
+        mobileIcon: <X className="h-5 w-5 text-red-600" />,
+        onClick: handleLogout
+      }
+    ] : [])
   ];
 
   return (
     <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-sky-50/95 backdrop-blur-md shadow-lg' : 'bg-sky-50 shadow-sm'}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
-          {/* Logo avec animation améliorée */}
           <div className="flex-shrink-0 flex items-center">
             <Link 
               to="/" 
@@ -80,12 +95,12 @@ const Navbar: React.FC = () => {
             </Link>
           </div>
           
-          {/* Desktop menu avec icônes améliorées */}
           <nav className="hidden md:flex items-center space-x-1 ml-6">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
+                onClick={item.onClick}
                 className={`flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 group ${
                   location.pathname === item.path
                     ? 'bg-sky-50 text-sky-700 shadow-inner'
@@ -105,7 +120,6 @@ const Navbar: React.FC = () => {
             ))}
           </nav>
           
-          {/* Mobile menu button avec animation améliorée */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -122,7 +136,6 @@ const Navbar: React.FC = () => {
         </div>
       </div>
       
-      {/* Mobile menu avec icônes améliorées */}
       <div className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
         isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
       }`}>
@@ -131,15 +144,16 @@ const Navbar: React.FC = () => {
             <Link 
               key={item.path}
               to={item.path} 
+              onClick={() => {
+                if (item.onClick) item.onClick();
+                setIsOpen(false);
+                window.scrollTo(0, 0);
+              }}
               className={`flex items-center w-full px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 group ${
                 location.pathname === item.path
                   ? 'bg-sky-50 text-sky-700 shadow-inner'
                   : 'text-gray-600 hover:bg-sky-50 hover:text-sky-600'
               }`}
-              onClick={() => {
-                setIsOpen(false);
-                window.scrollTo(0, 0);
-              }}
             >
               <span className="mr-3 transition-transform duration-300 group-hover:scale-110">
                 {React.cloneElement(item.mobileIcon, {
